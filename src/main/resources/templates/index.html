@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/main :: layout(~{::title}, ~{::section})}">
+<head>
+    <title>Home - Labor Contract Management</title>
+</head>
+<body>
+<section>
+    <div class="jumbotron bg-light p-5 rounded">
+        <h1 class="display-4">Labor Contract Management System</h1>
+        <p class="lead">Manage labor contracts, customers, and jobs efficiently.</p>
+        <hr class="my-4">
+        <p>This system helps you manage contracts with labor customers, track jobs, and handle payments.</p>
+        <div class="d-grid gap-2 d-md-flex">
+            <a href="/contracts/new" class="btn btn-primary btn-lg me-md-2">
+                <i class="fas fa-file-contract me-2"></i>Create New Contract
+            </a>
+            <a href="/contracts" class="btn btn-secondary btn-lg">
+                <i class="fas fa-list me-2"></i>View All Contracts
+            </a>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-file-contract fa-4x mb-3 text-primary"></i>
+                    <h3 class="card-title">Contract Management</h3>
+                    <p class="card-text">Create, view, and manage labor contracts with customers.</p>
+                    <a href="/contracts" class="btn btn-primary">Manage Contracts</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-users fa-4x mb-3 text-primary"></i>
+                    <h3 class="card-title">Customer Management</h3>
+                    <p class="card-text">Manage customer information and view customer details.</p>
+                    <a href="/customers" class="btn btn-primary">Manage Customers</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-briefcase fa-4x mb-3 text-primary"></i>
+                    <h3 class="card-title">Job Management</h3>
+                    <p class="card-text">Manage job information and view job details.</p>
+                    <a href="/jobs" class="btn btn-primary">Manage Jobs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

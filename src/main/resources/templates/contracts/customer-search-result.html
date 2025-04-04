@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        Search Results for: <span th:text="${searchTerm}"></span>
+    </div>
+    <div class="card-body">
+        <div th:if="${foundCustomers != null && !foundCustomers.empty}">
+            <div class="alert alert-success">
+                <strong>Customer(s) found!</strong> Click to select.
+            </div>
+            <div class="list-group">
+                <a th:each="customer : ${foundCustomers}" href="javascript:void(0)" class="list-group-item list-group-item-action"
+                   th:onclick="'selectCustomer(\'' + ${customer.id} + '\', \'' + ${customer.name} + '\', \'' + ${customer.phone} + '\', \'' + ${customer.email} + '\', \'' + ${customer.address} + '\', \'' + ${customer.taxCode} + '\', \'' + ${customer.representative} + '\')'">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1" th:text="${customer.name}"></h5>
+                        <small th:text="${'ID: ' + customer.id}"></small>
+                    </div>
+                    <p class="mb-1" th:text="${'Email: ' + customer.email}"></p>
+                    <small th:text="${'Phone: ' + customer.phone}"></small>
+                </a>
+            </div>
+        </div>
+        <div th:if="${foundCustomers == null || foundCustomers.empty}">
+            <div class="alert alert-warning">
+                No customer found with the name: <strong th:text="${searchTerm}"></strong>
+            </div>
+            <p>Would you like to create a new customer?</p>
+            <a href="/contracts/new-customer" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>Create New Customer
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
